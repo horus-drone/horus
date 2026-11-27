@@ -19,46 +19,87 @@ import { Card, CardGrid, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## One-line install
 
-<Tabs>
-  <TabItem label="Linux / macOS">
-    ```sh
-    curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
-    ```
-  </TabItem>
+No pre-installed Python, `uv`, or `git` required. Installs HORUS, fetches SITL & vision models, and starts **HORUS Studio** automatically (set `HORUS_NO_START=1` to skip auto-launch):
+
+<Tabs syncKey="os">
   <TabItem label="Windows (PowerShell)">
     ```powershell
     irm https://horus-drone.github.io/horus/install.ps1 | iex
     ```
   </TabItem>
-  <TabItem label="uv">
-    From GitHub with [uv](https://docs.astral.sh/uv/getting-started/installation/) (no `git` required):
+  <TabItem label="Linux / macOS">
     ```sh
-    uv tool install --python 3.12 https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
-    horus
-    ```
-    Or from a local clone:
-    ```sh
-    uv sync --python 3.12
-    uv run horus
-    ```
-  </TabItem>
-  <TabItem label="pip">
-    Create a virtualenv (Python 3.10–3.13) and install directly from GitHub:
-    ```sh
-    python -m venv .venv
-    source .venv/bin/activate   # Windows PowerShell: .\.venv\Scripts\Activate.ps1
-    pip install https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
-    horus
-    ```
-    Or from a local clone:
-    ```sh
-    pip install -e .
-    horus
+    curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
     ```
   </TabItem>
 </Tabs>
 
-The one-line installers bootstrap `uv` + Python 3.12, download SITL and vision models, and start **HORUS Studio** automatically (set `HORUS_NO_START=1` to skip auto-launch). When installing manually with `uv` or `pip`, `horus` automatically fetches missing SITL/models on first launch.
+## Development install (from a local clone)
+
+Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
+
+<Tabs syncKey="os">
+  <TabItem label="Windows (PowerShell)">
+    <details>
+    <summary>With uv (recommended)</summary>
+
+    Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/). Creates `.venv` with `horus-drone` in editable mode and `pytest` ready to run:
+    ```powershell
+    uv sync --python 3.12
+    uv run horus
+    ```
+    Or activate `.venv` once to run `horus` and `pytest` directly:
+    ```powershell
+    .\.venv\Scripts\Activate.ps1
+    horus
+    ```
+
+    </details>
+
+    <details>
+    <summary>With pip (Python 3.10–3.13)</summary>
+
+    ```powershell
+    python -m venv .venv
+    .\.venv\Scripts\Activate.ps1
+    pip install -e .
+    horus
+    ```
+
+    </details>
+  </TabItem>
+  <TabItem label="Linux / macOS">
+    <details>
+    <summary>With uv (recommended)</summary>
+
+    Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/). Creates `.venv` with `horus-drone` in editable mode and `pytest` ready to run:
+    ```sh
+    uv sync --python 3.12
+    uv run horus
+    ```
+    Or activate `.venv` once to run `horus` and `pytest` directly:
+    ```sh
+    source .venv/bin/activate
+    horus
+    ```
+
+    </details>
+
+    <details>
+    <summary>With pip (Python 3.10–3.13)</summary>
+
+    ```sh
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -e .
+    horus
+    ```
+
+    </details>
+  </TabItem>
+</Tabs>
+
+When running from a local clone, `horus` automatically fetches missing SITL and ONNX models on first launch.
 
 ## Why HORUS?
 

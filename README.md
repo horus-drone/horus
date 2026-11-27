@@ -38,13 +38,9 @@ HORUS lets a natural-language **AI model** supervise an **ArduPilot** multirotor
 
 ## Quickstart
 
-### One-line install (zero Python / `uv` / `git` prerequisites)
+### One-line install (recommended)
 
-**Linux / macOS:**
-
-```sh
-curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
-```
+No Python, `uv`, or `git` needed. Installs HORUS, downloads SITL & vision models, and launches **HORUS Studio**:
 
 **Windows (PowerShell):**
 
@@ -52,44 +48,71 @@ curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
 irm https://horus-drone.github.io/horus/install.ps1 | iex
 ```
 
-The one-line installers bootstrap `uv` + standalone Python 3.12 automatically, install HORUS, run `horus setup` to fetch ArduCopter SITL and ONNX models, and launch **HORUS Studio** immediately (set `HORUS_NO_START=1` or `HORUS_SKIP_SETUP=1` to opt out).
-
-**Direct with [`uv`](https://docs.astral.sh/uv/getting-started/installation/) (no `git` required):**
+**Linux / macOS:**
 
 ```sh
-uv tool install --python 3.12 https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
-horus
+curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
 ```
 
-**Direct with `pip` (Python 3.10–3.13):**
+### Development install (from a local clone)
 
-```sh
-python -m venv .venv
-# Linux / macOS: source .venv/bin/activate
-# Windows (PowerShell): .\.venv\Scripts\Activate.ps1
-pip install https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
-horus
-```
+Clone the repository, then expand your OS below:
 
-### From a local clone (recommended for development)
+<details>
+<summary><strong>Windows (PowerShell)</strong></summary>
 
-With [uv](https://docs.astral.sh/uv/getting-started/installation/):
+**With [`uv`](https://docs.astral.sh/uv/getting-started/installation/) (recommended):**
 
-```sh
+```powershell
 uv sync --python 3.12
-uv run horus            # or run tests: uv run pytest
+uv run horus
 ```
 
-Or with `pip` inside a local virtualenv:
+Or activate `.venv` once so you can run `horus` and `pytest` directly without `uv run`:
 
-```sh
+```powershell
+.\.venv\Scripts\Activate.ps1
+horus
+```
+
+**With `pip` (Python 3.10–3.13):**
+
+```powershell
 python -m venv .venv
-# Activate .venv, then:
+.\.venv\Scripts\Activate.ps1
 pip install -e .
 horus
 ```
 
-`horus` automatically runs asset setup on first launch if SITL or ONNX models are missing (pass `--no-auto-setup` or set `HORUS_SKIP_SETUP=1` to skip, or run `horus setup` ahead of time). When running from a writable source checkout, downloaded assets and logs stay in `<repo>/models` and `<repo>/runs`; when installed as a package, they live in your OS user cache/data directories.
+</details>
+
+<details>
+<summary><strong>Linux / macOS</strong></summary>
+
+**With [`uv`](https://docs.astral.sh/uv/getting-started/installation/) (recommended):**
+
+```sh
+uv sync --python 3.12
+uv run horus
+```
+
+Or activate `.venv` once so you can run `horus` and `pytest` directly without `uv run`:
+
+```sh
+source .venv/bin/activate
+horus
+```
+
+**With `pip` (Python 3.10–3.13):**
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+horus
+```
+
+</details>
 
 `horus` launches **HORUS Studio** with zero Docker, Gazebo, GStreamer, or hand-edited YAML required. Pick **Indoor SAR Room**, **Outdoor Forest**, **Urban Plaza**, **Procedural World**, or **Real Drone** in one click.
 

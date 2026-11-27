@@ -11,53 +11,88 @@ HORUS runs natively on **Linux** (`x86_64` / `aarch64`), **Windows 10/11** (`x86
 
 No pre-installed Python, `uv`, or `git` is required. Each installer bootstraps `uv` + standalone Python 3.12, installs HORUS, runs `horus setup`, and launches **HORUS Studio** automatically.
 
-<Tabs>
-  <TabItem label="Linux / macOS">
-    ```sh
-    curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
-    ```
-    Set `HORUS_SKIP_SETUP=1` to skip downloading SITL/ONNX assets during install, or `HORUS_NO_START=1` to install without auto-launching **HORUS Studio**.
-  </TabItem>
+<Tabs syncKey="os">
   <TabItem label="Windows (PowerShell)">
     ```powershell
     irm https://horus-drone.github.io/horus/install.ps1 | iex
     ```
     Set `$env:HORUS_SKIP_SETUP = "1"` to skip asset downloads during install, or `$env:HORUS_NO_START = "1"` to install without auto-launching **HORUS Studio**.
   </TabItem>
-  <TabItem label="uv">
-    Install directly from GitHub with [uv](https://docs.astral.sh/uv/getting-started/installation/) (no `git` or pre-installed Python required):
+  <TabItem label="Linux / macOS">
     ```sh
-    uv tool install --python 3.12 https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
-    horus
+    curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
     ```
-    Or install from a local clone in editable mode:
-    ```sh
-    uv sync --python 3.12
-    uv run horus        # or: uv run pytest
-    ```
-    `uv sync` creates a project-local `.venv` with `horus-drone` installed in editable mode plus the built-in `dev` dependency group (`pytest`). On first launch, `horus` automatically runs `horus setup` if required SITL/ONNX assets are missing (pass `--no-auto-setup` or set `HORUS_SKIP_SETUP=1` to skip, or run `horus setup` manually ahead of time).
+    Set `HORUS_SKIP_SETUP=1` to skip downloading SITL/ONNX assets during install, or `HORUS_NO_START=1` to install without auto-launching **HORUS Studio**.
   </TabItem>
-  <TabItem label="pip">
-    Requires **Python 3.10–3.13**. Use a virtual environment so `pip` does not conflict with system Python packages (PEP 668):
-    ```sh
-    python -m venv .venv
-    # Linux / macOS:
-    source .venv/bin/activate
-    # Windows (PowerShell):
-    # .\.venv\Scripts\Activate.ps1
+</Tabs>
 
-    pip install --upgrade pip
-    pip install https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
+## Development install (from a local clone)
+
+Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
+
+<Tabs syncKey="os">
+  <TabItem label="Windows (PowerShell)">
+    <details>
+    <summary>With uv (recommended)</summary>
+
+    Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/). Creates `.venv` with `horus-drone` in editable mode and the built-in `dev` group (`pytest`):
+    ```powershell
+    uv sync --python 3.12
+    uv run horus
+    ```
+    Or activate `.venv` once so you can run `horus` and `pytest` directly:
+    ```powershell
+    .\.venv\Scripts\Activate.ps1
     horus
     ```
-    Or install from a local clone in editable mode:
-    ```sh
+
+    </details>
+
+    <details>
+    <summary>With pip (Python 3.10–3.13)</summary>
+
+    ```powershell
+    python -m venv .venv
+    .\.venv\Scripts\Activate.ps1
     pip install -e .
     horus
     ```
-    You can also use `git+https://github.com/horus-drone/horus.git` if `git` is installed. On first launch, `horus` automatically fetches missing SITL and ONNX assets.
+
+    </details>
+  </TabItem>
+  <TabItem label="Linux / macOS">
+    <details>
+    <summary>With uv (recommended)</summary>
+
+    Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/). Creates `.venv` with `horus-drone` in editable mode and the built-in `dev` group (`pytest`):
+    ```sh
+    uv sync --python 3.12
+    uv run horus
+    ```
+    Or activate `.venv` once so you can run `horus` and `pytest` directly:
+    ```sh
+    source .venv/bin/activate
+    horus
+    ```
+
+    </details>
+
+    <details>
+    <summary>With pip (Python 3.10–3.13)</summary>
+
+    Uses a `.venv` so `pip` does not conflict with system Python packages (PEP 668):
+    ```sh
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -e .
+    horus
+    ```
+
+    </details>
   </TabItem>
 </Tabs>
+
+On first launch, `horus` automatically runs `horus setup` if required SITL/ONNX assets are missing (pass `--no-auto-setup` or set `HORUS_SKIP_SETUP=1` to skip, or run `horus setup` manually ahead of time).
 
 ## Where HORUS stores files
 
