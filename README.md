@@ -54,7 +54,7 @@ irm https://horus-drone.github.io/horus/install.ps1 | iex
 
 The one-line installers bootstrap `uv` + standalone Python 3.12 automatically, install HORUS, run `horus setup` to fetch ArduCopter SITL and ONNX models, and launch **HORUS Studio** immediately (set `HORUS_NO_START=1` or `HORUS_SKIP_SETUP=1` to opt out).
 
-**Direct with `uv` (no `git` required):**
+**Direct with [`uv`](https://docs.astral.sh/uv/getting-started/installation/) (no `git` required):**
 
 ```sh
 uv tool install --python 3.12 https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
@@ -72,6 +72,8 @@ horus
 ```
 
 ### From a local clone (recommended for development)
+
+With [uv](https://docs.astral.sh/uv/getting-started/installation/):
 
 ```sh
 uv sync --python 3.12

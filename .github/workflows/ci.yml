@@ -1,9 +1,9 @@
 name: HORUS CI
 
 on:
-  push:
-    branches: [main, dev]
-  pull_request:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
 
 jobs:
   test-and-smoke:
