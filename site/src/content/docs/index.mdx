@@ -34,16 +34,25 @@ No pre-installed Python, `uv`, or `git` required. Installs HORUS, fetches SITL &
   </TabItem>
 </Tabs>
 
-## Development install (from a local clone)
+After installation, launch **HORUS Studio** anytime with:
 
-Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
+```sh
+horus
+```
+
+<details>
+<summary><h3 style={{ display: "inline" }}>Install from source (development)</h3></summary>
+
+Clone the repository:
+
+```sh
+git clone https://github.com/horus-drone/horus.git
+cd horus
+```
 
 <Tabs syncKey="os">
   <TabItem label="Windows (PowerShell)">
-    <details>
-    <summary>With uv (recommended)</summary>
-
-    Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/). Creates `.venv` with `horus-drone` in editable mode and `pytest` ready to run:
+    **With [`uv`](https://docs.astral.sh/uv/getting-started/installation/) (recommended):**
     ```powershell
     uv sync --python 3.12
     uv run horus
@@ -54,10 +63,8 @@ Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
     horus
     ```
 
-    </details>
-
     <details>
-    <summary>With pip (Python 3.10–3.13)</summary>
+    <summary><strong>With <code>pip</code> (Python 3.10–3.13)</strong></summary>
 
     ```powershell
     python -m venv .venv
@@ -69,10 +76,7 @@ Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
     </details>
   </TabItem>
   <TabItem label="Linux / macOS">
-    <details>
-    <summary>With uv (recommended)</summary>
-
-    Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/). Creates `.venv` with `horus-drone` in editable mode and `pytest` ready to run:
+    **With [`uv`](https://docs.astral.sh/uv/getting-started/installation/) (recommended):**
     ```sh
     uv sync --python 3.12
     uv run horus
@@ -83,10 +87,8 @@ Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
     horus
     ```
 
-    </details>
-
     <details>
-    <summary>With pip (Python 3.10–3.13)</summary>
+    <summary><strong>With <code>pip</code> (Python 3.10–3.13)</strong></summary>
 
     ```sh
     python3 -m venv .venv
@@ -99,7 +101,9 @@ Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
   </TabItem>
 </Tabs>
 
-When running from a local clone, `horus` automatically fetches missing SITL and ONNX models on first launch.
+When running from source, `horus` automatically fetches missing SITL and ONNX models on first launch.
+
+</details>
 
 ## Why HORUS?
 

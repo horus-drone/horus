@@ -54,12 +54,23 @@ irm https://horus-drone.github.io/horus/install.ps1 | iex
 curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
 ```
 
-### Development install (from a local clone)
+After installation, launch **HORUS Studio** anytime with:
 
-Clone the repository, then expand your OS below:
+```sh
+horus
+```
 
 <details>
-<summary><strong>Windows (PowerShell)</strong></summary>
+<summary><h3 style="display: inline;">Install from source (development)</h3></summary>
+
+Clone the repository:
+
+```sh
+git clone https://github.com/horus-drone/horus.git
+cd horus
+```
+
+#### Windows (PowerShell)
 
 **With [`uv`](https://docs.astral.sh/uv/getting-started/installation/) (recommended):**
 
@@ -75,7 +86,8 @@ Or activate `.venv` once so you can run `horus` and `pytest` directly without `u
 horus
 ```
 
-**With `pip` (Python 3.10–3.13):**
+<details>
+<summary><strong>With <code>pip</code> (Python 3.10–3.13)</strong></summary>
 
 ```powershell
 python -m venv .venv
@@ -86,8 +98,7 @@ horus
 
 </details>
 
-<details>
-<summary><strong>Linux / macOS</strong></summary>
+#### Linux / macOS
 
 **With [`uv`](https://docs.astral.sh/uv/getting-started/installation/) (recommended):**
 
@@ -103,7 +114,8 @@ source .venv/bin/activate
 horus
 ```
 
-**With `pip` (Python 3.10–3.13):**
+<details>
+<summary><strong>With <code>pip</code> (Python 3.10–3.13)</strong></summary>
 
 ```sh
 python3 -m venv .venv
@@ -114,7 +126,7 @@ horus
 
 </details>
 
-`horus` launches **HORUS Studio** with zero Docker, Gazebo, GStreamer, or hand-edited YAML required. Pick **Indoor SAR Room**, **Outdoor Forest**, **Urban Plaza**, **Procedural World**, or **Real Drone** in one click.
+</details>
 
 ### CLI commands
 

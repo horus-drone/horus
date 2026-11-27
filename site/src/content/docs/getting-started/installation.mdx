@@ -26,16 +26,27 @@ No pre-installed Python, `uv`, or `git` is required. Each installer bootstraps `
   </TabItem>
 </Tabs>
 
-## Development install (from a local clone)
+After installation, launch **HORUS Studio** anytime with:
 
-Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
+```sh
+horus
+```
+
+<details>
+<summary><h3 style={{ display: "inline" }}>Install from source (development)</h3></summary>
+
+Clone the repository:
+
+```sh
+git clone https://github.com/horus-drone/horus.git
+cd horus
+```
 
 <Tabs syncKey="os">
   <TabItem label="Windows (PowerShell)">
-    <details>
-    <summary>With uv (recommended)</summary>
+    **With [`uv`](https://docs.astral.sh/uv/getting-started/installation/) (recommended):**
 
-    Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/). Creates `.venv` with `horus-drone` in editable mode and the built-in `dev` group (`pytest`):
+    Creates `.venv` with `horus-drone` in editable mode and the built-in `dev` group (`pytest`):
     ```powershell
     uv sync --python 3.12
     uv run horus
@@ -46,10 +57,8 @@ Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
     horus
     ```
 
-    </details>
-
     <details>
-    <summary>With pip (Python 3.10–3.13)</summary>
+    <summary><strong>With <code>pip</code> (Python 3.10–3.13)</strong></summary>
 
     ```powershell
     python -m venv .venv
@@ -61,10 +70,9 @@ Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
     </details>
   </TabItem>
   <TabItem label="Linux / macOS">
-    <details>
-    <summary>With uv (recommended)</summary>
+    **With [`uv`](https://docs.astral.sh/uv/getting-started/installation/) (recommended):**
 
-    Requires [`uv`](https://docs.astral.sh/uv/getting-started/installation/). Creates `.venv` with `horus-drone` in editable mode and the built-in `dev` group (`pytest`):
+    Creates `.venv` with `horus-drone` in editable mode and the built-in `dev` group (`pytest`):
     ```sh
     uv sync --python 3.12
     uv run horus
@@ -75,10 +83,8 @@ Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
     horus
     ```
 
-    </details>
-
     <details>
-    <summary>With pip (Python 3.10–3.13)</summary>
+    <summary><strong>With <code>pip</code> (Python 3.10–3.13)</strong></summary>
 
     Uses a `.venv` so `pip` does not conflict with system Python packages (PEP 668):
     ```sh
@@ -93,6 +99,8 @@ Clone the repository, then pick your OS and expand `uv` (recommended) or `pip`:
 </Tabs>
 
 On first launch, `horus` automatically runs `horus setup` if required SITL/ONNX assets are missing (pass `--no-auto-setup` or set `HORUS_SKIP_SETUP=1` to skip, or run `horus setup` manually ahead of time).
+
+</details>
 
 ## Where HORUS stores files
 
