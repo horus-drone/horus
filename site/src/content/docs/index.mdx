@@ -8,10 +8,10 @@ hero:
     file: ../../assets/logo.svg
   actions:
     - text: Get Started in 60 Seconds
-      link: /horus-drone/getting-started/quickstart/
+      link: /horus/getting-started/quickstart/
       icon: right-arrow
     - text: Architecture & Safety
-      link: /horus-drone/concepts/architecture/
+      link: /horus/concepts/architecture/
       variant: minimal
 ---
 
@@ -22,18 +22,18 @@ import { Card, CardGrid, Tabs, TabItem } from '@astrojs/starlight/components';
 <Tabs>
   <TabItem label="Linux / macOS">
     ```sh
-    curl -LsSf https://seros-cimenstein.github.io/horus-drone/install.sh | sh
+    curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
     ```
   </TabItem>
   <TabItem label="Windows (PowerShell)">
     ```powershell
-    irm https://seros-cimenstein.github.io/horus-drone/install.ps1 | iex
+    irm https://horus-drone.github.io/horus/install.ps1 | iex
     ```
   </TabItem>
   <TabItem label="uv">
     From GitHub (no `git` required):
     ```sh
-    uv tool install --python 3.12 https://github.com/seros-cimenstein/horus-drone/archive/refs/heads/main.tar.gz
+    uv tool install --python 3.12 https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
     horus
     ```
     Or from a local clone:
@@ -47,7 +47,7 @@ import { Card, CardGrid, Tabs, TabItem } from '@astrojs/starlight/components';
     ```sh
     python -m venv .venv
     source .venv/bin/activate   # Windows PowerShell: .\.venv\Scripts\Activate.ps1
-    pip install https://github.com/seros-cimenstein/horus-drone/archive/refs/heads/main.tar.gz
+    pip install https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
     horus
     ```
     Or from a local clone:

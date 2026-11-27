@@ -25,7 +25,7 @@ from horus.paths import (
     storage_mode,
 )
 
-ASSETS_REPO = "seros-cimenstein/horus-drone"
+ASSETS_REPO = "horus-drone/horus"
 ASSETS_RELEASE_TAG = "assets-copter-4.7.1"
 ASSETS_BASE_URL = f"https://github.com/{ASSETS_REPO}/releases/download/{ASSETS_RELEASE_TAG}"
 

@@ -2,8 +2,8 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 export default defineConfig({
-  site: "https://seros-cimenstein.github.io",
-  base: "/horus-drone",
+  site: "https://horus-drone.github.io",
+  base: "/horus",
   integrations: [
     starlight({
       title: "HORUS",
@@ -13,10 +13,10 @@ export default defineConfig({
       },
       favicon: "/favicon.svg",
       social: {
-        github: "https://github.com/seros-cimenstein/horus-drone",
+        github: "https://github.com/horus-drone/horus",
       },
       editLink: {
-        baseUrl: "https://github.com/seros-cimenstein/horus-drone/edit/main/site/",
+        baseUrl: "https://github.com/horus-drone/horus/edit/main/site/",
       },
       customCss: ["./src/styles/custom.css"],
       sidebar: [

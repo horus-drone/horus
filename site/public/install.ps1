@@ -1,11 +1,11 @@
 # HORUS one-line installer for Windows (PowerShell 5.1+ / pwsh; zero Python/uv/git prerequisites).
-# Usage: irm https://seros-cimenstein.github.io/horus-drone/install.ps1 | iex
+# Usage: irm https://horus-drone.github.io/horus/install.ps1 | iex
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $HorusRef = if ($env:HORUS_REF) { $env:HORUS_REF } else { "main" }
-$HorusPkg = if ($env:HORUS_PKG) { $env:HORUS_PKG } else { "https://github.com/seros-cimenstein/horus-drone/archive/refs/heads/$HorusRef.zip" }
+$HorusPkg = if ($env:HORUS_PKG) { $env:HORUS_PKG } else { "https://github.com/horus-drone/horus/archive/refs/heads/$HorusRef.zip" }
 $HorusPython = if ($env:HORUS_PYTHON) { $env:HORUS_PYTHON } else { "3.12" }
 
 Write-Host "==> Installing HORUS ($HorusPkg, Python $HorusPython)"

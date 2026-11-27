@@ -50,7 +50,7 @@ same block.
 | 6 | Phone version of the control app `#63bb` | Built and installed 2026-11-01 (`LOOP_PHONE_APP.md`); camera decided and built 2026-11-02 (what the AI saw, optional Live); user's live GTA test pending |
 | 7 | Crew with its planner, GTA gimbal, GTA height map and route planner | Decided 2026-11-03; ledger `LOOP_GTA_CREW_PLANNER.md` written, not run |
 | 8 | Standalone cross-platform HORUS Studio (`horus`), built-in 3D test world `#4e2c`, and one-line installers | Built and unit/ASGI/build-verified 2026-11-26 (8A, 8B, 8C); live SITL release workflow ready (`assets-copter-4.7.1`) |
-| 9 | Astro Starlight documentation site (`site/`) at `seros-cimenstein.github.io/horus-drone/` & modern `README.md` | Built and verified 2026-11-26 (`site/` build, `install.sh` / `install.ps1`, `.github/workflows/docs.yml`, `README.md`) |
+| 9 | Astro Starlight documentation site (`site/`) at `horus-drone.github.io/horus/` & modern `README.md` | Built and verified 2026-11-26 (`site/` build, `install.sh` / `install.ps1`, `.github/workflows/docs.yml`, `README.md`) |
 
 ### Phase 2: control app
 
@@ -189,7 +189,7 @@ Phase 8 breaks cleanly into three sub-phases (**8A**, **8B**, **8C**):
 
 2. **Pinned SITL & model release pipeline (`.github/workflows/release-assets.yml`) + `horus/bootstrap.py`:**
    - GitHub Actions workflow builds/bundles and publishes an immutable release (`assets-copter-4.7.1`)
-     on `seros-cimenstein/horus-drone` containing:
+     on `horus-drone/horus` containing:
      - `arducopter-4.7.1-linux-x86_64.tar.gz` (official ArduCopter 4.7.1 SITL ELF + `copter-default.parm`),
      - `arducopter-4.7.1-linux-aarch64.tar.gz` (compiled from `ArduPilot/ardupilot` tag `Copter-4.7.1`),
      - `arducopter-4.7.1-windows-x86_64.zip` (`ArduCopter.exe` built from tag `Copter-4.7.1` + minimal
@@ -409,7 +409,7 @@ Phase 8 breaks cleanly into three sub-phases (**8A**, **8B**, **8C**):
 
 **Goal:** Replace the dense 430-line `README.md` wall of text with a polished, searchable,
 production-grade **Astro Starlight** documentation website deployed at
-`https://seros-cimenstein.github.io/horus-drone/` (which also serves the one-line `install.sh` and
+`https://horus-drone.github.io/horus/` (which also serves the one-line `install.sh` and
 `install.ps1` installers), paired with a concise, modern root `README.md`.
 
 **Directory safeguard:** Keep all website code in **`site/`** at the repository root. Never modify
@@ -418,10 +418,10 @@ production-grade **Astro Starlight** documentation website deployed at
 Steps:
 1. **Scaffold Astro Starlight in `site/`:**
    - Configure `site/astro.config.mjs` with:
-     - `site: "https://seros-cimenstein.github.io"`
-     - `base: "/horus-drone"`
+     - `site: "https://horus-drone.github.io"`
+     - `base: "/horus"`
      - Starlight integration: title `"HORUS"`, custom SVG logo/favicon matching the Studio brand,
-       GitHub social link (`https://github.com/seros-cimenstein/horus-drone`), edit-on-GitHub links,
+       GitHub social link (`https://github.com/horus-drone/horus`), edit-on-GitHub links,
        Pagefind full-text search, client/build-time Mermaid diagram support, link validation, and a
        refined custom CSS theme (dark/light aerospace palette).
 2. **Author complete, well-structured documentation (`site/src/content/docs/`):**
@@ -465,16 +465,16 @@ Steps:
        and environment variables.
      - `reference/experiments.mdx` — Reproducing latency sweeps, safety trials, and JSONL event logs.
 3. **One-line cross-platform installers (`site/public/install.sh` & `site/public/install.ps1`):**
-   - Served directly at `https://seros-cimenstein.github.io/horus-drone/install.sh` and
-     `https://seros-cimenstein.github.io/horus-drone/install.ps1`.
+   - Served directly at `https://horus-drone.github.io/horus/install.sh` and
+     `https://horus-drone.github.io/horus/install.ps1`.
    - Idempotent, shellcheck-clean (`install.sh`) and PowerShell StrictMode-clean (`install.ps1`):
      bootstraps `uv` if missing, installs `horus-drone` in an isolated Python 3.12 tool environment,
      optionally runs `horus setup` (skippable via `HORUS_SKIP_SETUP=1`), verifies `horus --help`,
      and prints next-step instructions.
 4. **GitHub Pages CI/CD workflow (`.github/workflows/docs.yml`):**
    - Builds `site/` on Node 22, checks that zero broken internal links exist (respecting the
-     `/horus-drone/` base path!), verifies `dist/install.sh` and `dist/install.ps1` are present,
-     and deploys automatically to GitHub Pages (`https://seros-cimenstein.github.io/horus-drone/`)
+     `/horus/` base path!), verifies `dist/install.sh` and `dist/install.ps1` are present,
+     and deploys automatically to GitHub Pages (`https://horus-drone.github.io/horus/`)
      on pushes to `main` (and runs the build/link check as a PR gate without deploying).
 5. **Rewrite root `README.md`:**
    - Transform `README.md` into a clean, modern ~140-line project front door:
@@ -484,15 +484,15 @@ Steps:
        `horus`.
      - **Highlights** (4 concise bullets), **Architecture** Mermaid diagram (using the exact diagram
        block names), **Safety Principles** summary, and a clean **Documentation** table linking out
-       to `https://seros-cimenstein.github.io/horus-drone/` for every deep guide.
+       to `https://horus-drone.github.io/horus/` for every deep guide.
 
 **Phase 9 done when:**
-- `npm run build` in `site/` succeeds with zero warnings or broken `/horus-drone/...` base-path
+- `npm run build` in `site/` succeeds with zero warnings or broken `/horus/...` base-path
   links, and `.github/workflows/docs.yml` is configured to publish cleanly to
-  `https://seros-cimenstein.github.io/horus-drone/`.
+  `https://horus-drone.github.io/horus/`.
 - `install.sh` and `install.ps1` pass automated smoke tests on `ubuntu-latest` and `windows-latest`.
 - Root `README.md` is concise, visually clean, uses the diagram's exact block names, and links every
-  topic to `https://seros-cimenstein.github.io/horus-drone/`.
+  topic to `https://horus-drone.github.io/horus/`.
 - `docs/course/` and `docs/paf/` remain completely untouched (`git status docs/` clean).
 
 ---
@@ -507,7 +507,7 @@ To deliver visible value cleanly and verify each layer before building on top of
 3. **Phase 8C** (Modern `ui/` -> `horus/commander/web/` HORUS Studio Flight Deck, 3D spectator view,
    Fault Lab, Settings wizard, and Phone PWA parity + end-to-end UI/smoke tests).
 4. **Phase 9** (Astro Starlight site in `site/` configured for
-   `https://seros-cimenstein.github.io/horus-drone/`, `install.sh` & `install.ps1`,
+   `https://horus-drone.github.io/horus/`, `install.sh` & `install.ps1`,
    `.github/workflows/docs.yml`, and the redesigned modern `README.md` featuring real Studio
    screenshots).
 

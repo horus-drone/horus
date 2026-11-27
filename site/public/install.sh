@@ -2,10 +2,10 @@
 set -eu
 
 # HORUS one-line installer for Linux and macOS (zero Python/uv/git prerequisites).
-# Usage: curl -LsSf https://seros-cimenstein.github.io/horus-drone/install.sh | sh
+# Usage: curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
 
 HORUS_REF="${HORUS_REF:-main}"
-HORUS_PKG="${HORUS_PKG:-https://github.com/seros-cimenstein/horus-drone/archive/refs/heads/${HORUS_REF}.tar.gz}"
+HORUS_PKG="${HORUS_PKG:-https://github.com/horus-drone/horus/archive/refs/heads/${HORUS_REF}.tar.gz}"
 HORUS_PYTHON="${HORUS_PYTHON:-3.12}"
 
 printf '==> Installing HORUS (%s, Python %s)\n' "${HORUS_PKG}" "${HORUS_PYTHON}"

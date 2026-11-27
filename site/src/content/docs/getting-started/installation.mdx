@@ -14,20 +14,20 @@ No pre-installed Python, `uv`, or `git` is required. Each installer bootstraps `
 <Tabs>
   <TabItem label="Linux / macOS">
     ```sh
-    curl -LsSf https://seros-cimenstein.github.io/horus-drone/install.sh | sh
+    curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
     ```
     Set `HORUS_SKIP_SETUP=1` to skip downloading SITL/ONNX assets during install, or `HORUS_NO_START=1` to install without auto-launching **HORUS Studio**.
   </TabItem>
   <TabItem label="Windows (PowerShell)">
     ```powershell
-    irm https://seros-cimenstein.github.io/horus-drone/install.ps1 | iex
+    irm https://horus-drone.github.io/horus/install.ps1 | iex
     ```
     Set `$env:HORUS_SKIP_SETUP = "1"` to skip asset downloads during install, or `$env:HORUS_NO_START = "1"` to install without auto-launching **HORUS Studio**.
   </TabItem>
   <TabItem label="uv">
     Install directly from GitHub with `uv` (no `git` or pre-installed Python required):
     ```sh
-    uv tool install --python 3.12 https://github.com/seros-cimenstein/horus-drone/archive/refs/heads/main.tar.gz
+    uv tool install --python 3.12 https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
     horus
     ```
     Or install from a local clone in editable mode:
@@ -47,7 +47,7 @@ No pre-installed Python, `uv`, or `git` is required. Each installer bootstraps `
     # .\.venv\Scripts\Activate.ps1
 
     pip install --upgrade pip
-    pip install https://github.com/seros-cimenstein/horus-drone/archive/refs/heads/main.tar.gz
+    pip install https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
     horus
     ```
     Or install from a local clone in editable mode:
@@ -55,7 +55,7 @@ No pre-installed Python, `uv`, or `git` is required. Each installer bootstraps `
     pip install -e .
     horus
     ```
-    You can also use `git+https://github.com/seros-cimenstein/horus-drone.git` if `git` is installed. On first launch, `horus` automatically fetches missing SITL and ONNX assets.
+    You can also use `git+https://github.com/horus-drone/horus.git` if `git` is installed. On first launch, `horus` automatically fetches missing SITL and ONNX assets.
   </TabItem>
 </Tabs>
 
@@ -75,7 +75,7 @@ Override any location with `HORUS_ASSETS_DIR`, `HORUS_RUNS_DIR`, or `HORUS_CONFI
 On an onboard companion computer (e.g., BeagleY-AI / AM67A) that only runs the **Drone board** (`horus mcp`) without MuJoCo or cloud LLM SDKs, install the lean `board` extra:
 
 ```sh
-pip install "horus-drone[board] @ git+https://github.com/seros-cimenstein/horus-drone.git"
+pip install "horus-drone[board] @ git+https://github.com/horus-drone/horus.git"
 ```
 
 Or from a local clone on the board:

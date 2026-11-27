@@ -6,16 +6,16 @@
 
 **Safety-first, latency-tolerant autonomous drone supervision. Natural-language AI pilots backed by deterministic safety, onboard vision, and 3D simulation.**
 
-[![Documentation](https://img.shields.io/badge/docs-Starlight-3b82f6)](https://seros-cimenstein.github.io/horus-drone/)
+[![Documentation](https://img.shields.io/badge/docs-Starlight-3b82f6)](https://horus-drone.github.io/horus/)
 [![CI](https://img.shields.io/badge/CI-Linux%20%26%20Windows-22c55e)](.github/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.10%E2%80%933.13-blue)](pyproject.toml)
 [![License](https://img.shields.io/badge/license-MIT-slate)](pyproject.toml)
 
-[Documentation](https://seros-cimenstein.github.io/horus-drone/) ·
-[Quickstart](https://seros-cimenstein.github.io/horus-drone/getting-started/quickstart/) ·
-[Safety Model](https://seros-cimenstein.github.io/horus-drone/concepts/safety-model/) ·
-[MCP Tools](https://seros-cimenstein.github.io/horus-drone/reference/mcp-tools/) ·
-[Credits & Licenses](https://seros-cimenstein.github.io/horus-drone/reference/credits-and-licenses/)
+[Documentation](https://horus-drone.github.io/horus/) ·
+[Quickstart](https://horus-drone.github.io/horus/getting-started/quickstart/) ·
+[Safety Model](https://horus-drone.github.io/horus/concepts/safety-model/) ·
+[MCP Tools](https://horus-drone.github.io/horus/reference/mcp-tools/) ·
+[Credits & Licenses](https://horus-drone.github.io/horus/reference/credits-and-licenses/)
 
 </div>
 
@@ -26,15 +26,15 @@ HORUS lets a natural-language **AI model** supervise an **ArduPilot** multirotor
 ## Documentation
 
 > [!TIP]
-> **Full guides, installation scripts, hardware checklists, and API references live on the [HORUS Documentation Site](https://seros-cimenstein.github.io/horus-drone/).**
+> **Full guides, installation scripts, hardware checklists, and API references live on the [HORUS Documentation Site](https://horus-drone.github.io/horus/).**
 
 | Section | Guides |
 | --- | --- |
-| **Getting Started** | [Installation](https://seros-cimenstein.github.io/horus-drone/getting-started/installation/) · [Quickstart](https://seros-cimenstein.github.io/horus-drone/getting-started/quickstart/) · [AI Providers & Crew](https://seros-cimenstein.github.io/horus-drone/getting-started/ai-providers/) |
-| **Core Concepts & Safety** | [Architecture](https://seros-cimenstein.github.io/horus-drone/concepts/architecture/) · [Safety Model](https://seros-cimenstein.github.io/horus-drone/concepts/safety-model/) · [Vision & Latency](https://seros-cimenstein.github.io/horus-drone/concepts/vision-and-latency/) |
-| **Simulation Worlds** | [Built-in 3D World](https://seros-cimenstein.github.io/horus-drone/simulation/builtin-3d/) · [Gazebo Harmonic](https://seros-cimenstein.github.io/horus-drone/simulation/gazebo/) · [GTA V Integration](https://seros-cimenstein.github.io/horus-drone/simulation/gta-v/) |
-| **Hardware & Field Ops** | [Companion Setup](https://seros-cimenstein.github.io/horus-drone/hardware/companion-setup/) · [Pre-flight & Testing](https://seros-cimenstein.github.io/horus-drone/hardware/preflight-and-testing/) · [Phone Companion App](https://seros-cimenstein.github.io/horus-drone/hardware/phone-app/) |
-| **Reference** | [MCP Drone Board Tools](https://seros-cimenstein.github.io/horus-drone/reference/mcp-tools/) · [CLI & Configuration](https://seros-cimenstein.github.io/horus-drone/reference/cli-and-config/) · [Experiments & Logs](https://seros-cimenstein.github.io/horus-drone/reference/experiments/) · [Credits & Licenses](https://seros-cimenstein.github.io/horus-drone/reference/credits-and-licenses/) |
+| **Getting Started** | [Installation](https://horus-drone.github.io/horus/getting-started/installation/) · [Quickstart](https://horus-drone.github.io/horus/getting-started/quickstart/) · [AI Providers & Crew](https://horus-drone.github.io/horus/getting-started/ai-providers/) |
+| **Core Concepts & Safety** | [Architecture](https://horus-drone.github.io/horus/concepts/architecture/) · [Safety Model](https://horus-drone.github.io/horus/concepts/safety-model/) · [Vision & Latency](https://horus-drone.github.io/horus/concepts/vision-and-latency/) |
+| **Simulation Worlds** | [Built-in 3D World](https://horus-drone.github.io/horus/simulation/builtin-3d/) · [Gazebo Harmonic](https://horus-drone.github.io/horus/simulation/gazebo/) · [GTA V Integration](https://horus-drone.github.io/horus/simulation/gta-v/) |
+| **Hardware & Field Ops** | [Companion Setup](https://horus-drone.github.io/horus/hardware/companion-setup/) · [Pre-flight & Testing](https://horus-drone.github.io/horus/hardware/preflight-and-testing/) · [Phone Companion App](https://horus-drone.github.io/horus/hardware/phone-app/) |
+| **Reference** | [MCP Drone Board Tools](https://horus-drone.github.io/horus/reference/mcp-tools/) · [CLI & Configuration](https://horus-drone.github.io/horus/reference/cli-and-config/) · [Experiments & Logs](https://horus-drone.github.io/horus/reference/experiments/) · [Credits & Licenses](https://horus-drone.github.io/horus/reference/credits-and-licenses/) |
 
 ## Quickstart
 
@@ -43,13 +43,13 @@ HORUS lets a natural-language **AI model** supervise an **ArduPilot** multirotor
 **Linux / macOS:**
 
 ```sh
-curl -LsSf https://seros-cimenstein.github.io/horus-drone/install.sh | sh
+curl -LsSf https://horus-drone.github.io/horus/install.sh | sh
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
-irm https://seros-cimenstein.github.io/horus-drone/install.ps1 | iex
+irm https://horus-drone.github.io/horus/install.ps1 | iex
 ```
 
 The one-line installers bootstrap `uv` + standalone Python 3.12 automatically, install HORUS, run `horus setup` to fetch ArduCopter SITL and ONNX models, and launch **HORUS Studio** immediately (set `HORUS_NO_START=1` or `HORUS_SKIP_SETUP=1` to opt out).
@@ -57,7 +57,7 @@ The one-line installers bootstrap `uv` + standalone Python 3.12 automatically, i
 **Direct with `uv` (no `git` required):**
 
 ```sh
-uv tool install --python 3.12 https://github.com/seros-cimenstein/horus-drone/archive/refs/heads/main.tar.gz
+uv tool install --python 3.12 https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
 horus
 ```
 
@@ -67,7 +67,7 @@ horus
 python -m venv .venv
 # Linux / macOS: source .venv/bin/activate
 # Windows (PowerShell): .\.venv\Scripts\Activate.ps1
-pip install https://github.com/seros-cimenstein/horus-drone/archive/refs/heads/main.tar.gz
+pip install https://github.com/horus-drone/horus/archive/refs/heads/main.tar.gz
 horus
 ```
 
@@ -111,7 +111,7 @@ horus --help                      # List all commands (short form: horus -h)
 horus <command> --help            # Show options for a specific command (e.g. horus studio --help)
 ```
 
-See the [CLI & Configuration reference](https://seros-cimenstein.github.io/horus-drone/reference/cli-and-config/) for standalone entrypoints, YAML profiles, HTTP/SSE APIs, and environment variables.
+See the [CLI & Configuration reference](https://horus-drone.github.io/horus/reference/cli-and-config/) for standalone entrypoints, YAML profiles, HTTP/SSE APIs, and environment variables.
 
 ## Highlights
 
@@ -149,7 +149,7 @@ flowchart LR
 ## Project Structure
 
 ```text
-horus-drone/
+horus/
 ├── horus/                  # Main Python package
 │   ├── cli.py              # `horus` CLI (studio, tui, mcp, setup, doctor)
 │   ├── bootstrap.py        # ArduCopter SITL + YOLOv8n/OSNet asset fetcher & doctor
@@ -181,4 +181,4 @@ horus-drone/
 
 ## License & Credits
 
-HORUS is released under the **MIT License**. Third-party AI vision checkpoints (such as `Kalray/yolov8` under **AGPL-3.0** and `OSNet` under **MIT**), map datasets (OpenStreetMap **ODbL**), and Gazebo Fuel 3D simulation assets carry their own upstream licenses and attributions; see **[Credits & Licenses](https://seros-cimenstein.github.io/horus-drone/reference/credits-and-licenses/)** for full details.
+HORUS is released under the **MIT License**. Third-party AI vision checkpoints (such as `Kalray/yolov8` under **AGPL-3.0** and `OSNet` under **MIT**), map datasets (OpenStreetMap **ODbL**), and Gazebo Fuel 3D simulation assets carry their own upstream licenses and attributions; see **[Credits & Licenses](https://horus-drone.github.io/horus/reference/credits-and-licenses/)** for full details.

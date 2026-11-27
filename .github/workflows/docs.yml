@@ -48,7 +48,7 @@ jobs:
           import sys
 
           dist = Path("site/dist").resolve()
-          base = "/horus-drone"
+          base = "/horus"
           broken = []
 
           class LinkExtractor(HTMLParser):
@@ -72,7 +72,7 @@ jobs:
                   elif url == base:
                       rel = ""
                   elif url.startswith("/"):
-                      broken.append((str(html_file.relative_to(dist)), raw, "missing /horus-drone base prefix"))
+                      broken.append((str(html_file.relative_to(dist)), raw, "missing /horus base prefix"))
                       continue
                   else:
                       rel = str((html_file.parent / url).resolve().relative_to(dist))
