@@ -8,6 +8,7 @@ __pycache__/
 # Third-party map data, fetched at setup (scripts/maps/); never committed.
 /data/
 .venv/
+uv.lock
 .ruff_cache/
 /sim/run/
 /sim/logs/*

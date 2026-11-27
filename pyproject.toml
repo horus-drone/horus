@@ -69,6 +69,11 @@ test = [
   "rich>=13.7,<15",
 ]
 
+[dependency-groups]
+dev = [
+  "pytest>=8,<9",
+]
+
 [project.scripts]
 horus = "horus.cli:main"
 horus-mcp = "horus.mcp_server.server:main"

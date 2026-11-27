@@ -74,8 +74,8 @@ horus
 ### From a local clone (recommended for development)
 
 ```sh
-uv tool install --python 3.12 -e .
-horus
+uv sync --python 3.12
+uv run horus            # or run tests: uv run pytest
 ```
 
 Or with `pip` inside a local virtualenv:

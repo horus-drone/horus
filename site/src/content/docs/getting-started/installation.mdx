@@ -32,10 +32,10 @@ No pre-installed Python, `uv`, or `git` is required. Each installer bootstraps `
     ```
     Or install from a local clone in editable mode:
     ```sh
-    uv tool install --python 3.12 -e .
-    horus
+    uv sync --python 3.12
+    uv run horus        # or: uv run pytest
     ```
-    On first launch, `horus` automatically runs `horus setup` if required SITL/ONNX assets are missing (pass `--no-auto-setup` or set `HORUS_SKIP_SETUP=1` to skip, or run `horus setup` manually ahead of time).
+    `uv sync` creates a project-local `.venv` with `horus-drone` installed in editable mode plus the built-in `dev` dependency group (`pytest`). On first launch, `horus` automatically runs `horus setup` if required SITL/ONNX assets are missing (pass `--no-auto-setup` or set `HORUS_SKIP_SETUP=1` to skip, or run `horus setup` manually ahead of time).
   </TabItem>
   <TabItem label="pip">
     Requires **Python 3.10–3.13**. Use a virtual environment so `pip` does not conflict with system Python packages (PEP 668):
